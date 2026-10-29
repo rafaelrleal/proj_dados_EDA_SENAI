@@ -65,3 +65,8 @@ print(df.groupby("PR_CAT")["PR_ID"].count())
 
 # Quantos itens por genero do cliente 
 print(df.groupby("CL_GENERO")["PR_ID"].count())
+
+# exportacao 
+
+df.to_csv(BASE_DIR / "varejo_limpo.csv", index=False)
+linhas_depois = len(df)
