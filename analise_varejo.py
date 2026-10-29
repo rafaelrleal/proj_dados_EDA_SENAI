@@ -12,3 +12,16 @@ df = df.drop(columns=["Unnamed: 10", "Unnamed: 11", "Unnamed: 12", "Unnamed: 13"
 
 # Guardo o total de linhas antes da limpeza para comparar no final.
 linhas_antes = len(df)
+
+
+
+# limpeza 
+
+# Padronizo o nome do produto em maiusculas
+df["PR_NOME"] = df["PR_NOME"].str.upper()
+
+# Removo linhas totalmente iguais
+df = df.drop_duplicates()
+
+# Marco a categoria ausente em vez de apagar a linha, para nao perder os dados do cliente.
+df["PR_CAT"] = df["PR_CAT"].fillna("NAO INFORMADO")
